@@ -1,21 +1,28 @@
+:root{
+  --first-color: black;
+  --second-color: #595959;
+  --third-color: #d6dadd;
+  --fourth-color: #6495ed;
+}
 html {
   font-family: "Kdam Thmor Pro", sans-serif;
 }
 body {
   margin: 0;
-  background-color: rgb(153, 50, 204);
+  background-color: var(--first-color);
+  color: var(--third-color)
 }
 nav {
   position: fixed;
   top: 0;
   z-index: 9;
   width: 100%;
-  background-color: rgb(50, 204, 153);
+  background-color: var(--second-color);
   backdrop-filter: blur(10px);
 }
 a {
   text-decoration: none;
-  color: black;
+  color: var(--third-color);
 }
 ul {
   display: flex;
@@ -32,9 +39,22 @@ h1 {
 }
 h2 {
   font-size: 34px;
+  color: var(--fourth-color);
 }
 p {
   font-size: 24px;
+}
+input ,  textarea {
+  background-color: #d6dadd;  
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+}
+.light-theme{
+  --first-color: #f5f5f5;
+  --second-color: #7f7f7f;
+  --third-color: black;
+  --fourth-color: #1f66e5;
 }
 .max-WH {
   width: 100%;
@@ -56,14 +76,16 @@ p {
 .centerText {
   text-align: center;
 }
+#theme{
+  cursor: pointer;
+}
 .menu-item {
   display: flex;
   padding: 10px;
-  color: black;
 }
 .active.menu-item {
   text-decoration: underline;
-  text-decoration-color: rgb(153, 50, 204);
+  text-decoration-color: var(--first-color);
 }
 #home-container {
   max-width: 800px;
@@ -72,10 +94,12 @@ p {
 #introduction {
   margin-block-end: 3em;
 }
+#introduction strong{
+  color: var(--fourth-color);
+}
 #resume {
   width: 100%;
-  background-color: rgb(204, 153, 50);
-  color: black;
+  background-color: var(--second-color);
   padding: 10px;
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -99,7 +123,7 @@ p {
   align-items: center;
   height: 500px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: var(--second-color);
 }
 .project-container img {
   width: 300px;
@@ -126,23 +150,21 @@ p {
   border-radius: 100vw;
 }
 .project-description::-webkit-scrollbar-thumb {
-  background-color: rgb(50, 204, 153);
+  background-color: var(--second-color);
   border: 1.9px solid black;
   border-radius: 100vw;
 }
 .project-links {
-  background-color: rgb(204, 153, 50);
-  color: black;
+  background-color: var(--first-color);
   padding: 10px;
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .see-live {
   margin-left: 10px;
 }
 #see-more {
-  background-color: rgb(204, 153, 50);
-  color: black;
+  background-color: var(--second-color);
   padding: 10px;
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -163,7 +185,6 @@ p {
   border-style: none;
   border-radius: 5px;
   margin-bottom: 0.5rem;
-  color: black;
   font-size: 18px;
 }
 #contact-form textarea {
@@ -172,7 +193,6 @@ p {
   border-style: none;
   border-radius: 10px;
   margin-bottom: 3em;
-  color: black;
   font-size: 18px;
 }
 #contact-form button {
@@ -183,7 +203,8 @@ p {
   font-size: 15px;
   font-weight: 600;
   padding: 15px;
-  background-color: rgb(204, 153, 50);
+  background-color: var(--second-color);
+  color: var(--third-color);
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -195,7 +216,6 @@ p {
   border-radius: 50px;
   height: 2rem;
   width: 3rem;
-  color: rgb(0, 0, 0);
 }
 #footer-text {
   margin-block-start: 0;
@@ -270,9 +290,4 @@ p {
   #about-title {
     margin-block-start: 2.85em;
   }
-}
-#canvas{
-  position: absolute;
-  z-index: -1;
-  background: rgb(153, 50, 204);
 }
