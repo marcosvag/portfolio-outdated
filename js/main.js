@@ -1,65 +1,76 @@
 const sections = document.querySelectorAll("section");
-const menu = document.querySelectorAll(".menu-item");
-const sects = ["home", "about", "projects", "contact"];
-const pairsOfSectNav = [
-  [sects[0], "nav-home"],
-  [sects[1], "nav-about"],
-  [sects[2], "nav-projects"],
-  [sects[3], "nav-contact"],
+const sectionNames = ["home", "about", "projects", "contact"];
+const pairsOfSections = [
+  [sectionNames[0], "nav-home"],
+  [sectionNames[1], "nav-about"],
+  [sectionNames[2], "nav-projects"],
+  [sectionNames[3], "nav-contact"],
 ];
 let currentSection = 0;
-const active = {
+
+const activeSection = {
   add: function () {
-    pairsOfSectNav[currentSection].forEach((element) => {
+    pairsOfSections[currentSection].forEach((element) => {
       document.getElementById(element).classList.add("active");
     });
   },
   remove: function () {
-    pairsOfSectNav[currentSection].forEach((element) => {
+    pairsOfSections[currentSection].forEach((element) => {
       document.getElementById(element).classList.remove("active");
     });
   },
 };
-const moveSect = {
+
+const moveSectionKeyboard = {
   ArrowLeft: function () {
     if (!currentSection) {
-      active.remove();
-      currentSection = pairsOfSectNav.length - 1;
-      active.add();
+      activeSection.remove();
+      currentSection = pairsOfSections.length - 1;
+      activeSection.add();
     } else {
-      active.remove();
+      activeSection.remove();
       currentSection--;
-      active.add();
+      activeSection.add();
     }
   },
   ArrowRight: function () {
-    if (currentSection === pairsOfSectNav.length - 1) {
-      active.remove();
+    if (currentSection === pairsOfSections.length - 1) {
+      activeSection.remove();
       currentSection = 0;
-      active.add();
+      activeSection.add();
     } else {
-      active.remove();
+      activeSection.remove();
       currentSection++;
-      active.add();
+      activeSection.add();
     }
   },
 };
-document
-  .querySelector("#navList")
-  .addEventListener("click", changeSectionMouse);
-document.body.addEventListener("keydown", changeSectionKeyboard);
+document.querySelector("#navList").addEventListener("click", mouseEvents);
+document.body.addEventListener("keydown", keyboardEvents);
 
-function changeSectionMouse(event) {
-  if (
+function mouseEvents(event) {
+  if (event.target.id == "theme") {
+    switchTheme();
+  }
+  else if (
     !event.target.classList.contains("active") &&
     event.target.classList.contains("menu-item")
   ) {
-    active.remove();
-    currentSection = sects.indexOf(event.target.dataset.id);
-    active.add();
+    activeSection.remove();
+    currentSection = sectionNames.indexOf(event.target.dataset.id);
+    activeSection.add();
   }
 }
-function changeSectionKeyboard(event) {
-  if (event.key == "ArrowLeft" || event.key == "ArrowRight" && event.composedPath()[1] !== document.querySelector("form")) moveSect[event.key]();
-  console.log()
+
+function keyboardEvents(event) {
+  if (event.key == "ArrowLeft" || event.key == "ArrowRight" && event.composedPath()[1] !== document.querySelector("form")) moveSectionKeyboard[event.key]();
+}
+
+function switchTheme(event) {
+  document.body.classList.toggle("light-theme");
+  if (event.target.classList.contains("fa-moon")) {
+    event.target.classList = "fa-solid fa-sun menu-item centerXY";
+  } else {
+    event.target.classList = "fa-solid fa-moon menu-item centerXY";
+  }
 }
