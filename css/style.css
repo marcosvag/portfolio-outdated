@@ -109,11 +109,20 @@ input ,  textarea {
   max-width: 800px;
   margin: 0 15px 0 15px;
 }
+#about-title{
+  margin-block-start: 0;
+  margin-block-end: 1.83em;
+}
+.about-info{
+  align-self: flex-start;
+  margin-block-start: 0em;
+  margin-block-end: 0.5em;
+}
 #projects-container {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fit, 20.5rem);
-  gap: 1.5rem;
+  gap: 1rem;
   justify-content: center;
 }
 #projects-title {
@@ -126,7 +135,7 @@ input ,  textarea {
   background-color: var(--second-color);
 }
 .project-container img {
-  width: 300px;
+  width: 90%;
   height: 150px;
   margin-top: 10px; 
   border-radius: 5px;
@@ -174,6 +183,13 @@ input ,  textarea {
 #contact-container {
   max-width: 800px;
   margin: 0 15px 0 15px;
+}
+.contact-phrase{
+  margin-block-start: 0em;
+  margin-block-end: 0.5em;
+}
+.contact-phrase strong{
+  color: var(--fourth-color);
 }
 #contact-form {
   width: 100%;
@@ -229,7 +245,7 @@ input ,  textarea {
   h2 {
     font-size: 24px;
   }
-  #projects-title {
+  #projects-title , #about-title {
     margin-block-start: 2.85em;
   }
   #see-more {
@@ -246,10 +262,7 @@ input ,  textarea {
   #projects-container {
     grid-template-columns: repeat(auto-fit, 15.5rem);
   }
-  .project-container img {
-    width: 100%;
-  }
-  #contact-phrase,
+  .contact-phrase,
   #contact-form {
     font-size: 20px;
     max-width: 80%;
@@ -263,8 +276,8 @@ input ,  textarea {
     font-size: 25px;
   }
   #intro-phrase,
-  #about-info,
-  #contact-phrase,
+  .about-info,
+  .contact-phrase,
   #contact-form {
     font-size: 15px;
     max-width: 80%;
@@ -279,6 +292,9 @@ input ,  textarea {
   }
 }
 @media (max-height: 740px) {
+  #about div :last-child {
+    margin-block-end: 2em;
+  } 
   #contact-title {
     margin-block-start: 2.85em;
   }
