@@ -50,7 +50,7 @@ document.body.addEventListener("keydown", keyboardEvents);
 
 function mouseEvents(event) {
   if (event.target.id == "theme") {
-    switchTheme();
+    switchTheme(event);
   }
   else if (
     !event.target.classList.contains("active") &&
